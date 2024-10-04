@@ -1,30 +1,29 @@
 <template>
   <div>
-    <h1>Create Blog</h1>
+    <h1>add animal</h1>
     <form v-on:submit.prevent="createBlog">
       <p>
-        title:
-        <input type="text" v-model="blog.title" />
+        ชื่อ:
+        <input type="text" v-model="blog.name" />
+      </p>
+      p><strong>content: </strong></p> 
+<p><vue-ckeditor 
+v-model.lazy="blog.content" 
+:config="config" 
+@blur="onBlur($event)" @focus="onFocus($event)" /></p> 
+      <p>ที่อยู่อาศัย:
+      <input type="text" v-model="blog.habitat" />
+    </p>
+      <p>
+        อาหาร:
+        <input type="text" v-model="blog.food" />
       </p>
       <p>
-        <strong>content:</strong>
-      </p>
-      <vue-ckeditor
-        v-model.lazy="blog.content"
-        :config="config"
-        @blur="onBlur($event)"
-        @focus="onFocus($event)"
-      />
-      <p>
-        category:
-        <input type="text" v-model="blog.category" />
-      </p>
-      <p>
-        status:
+        ประเภท:
         <input type="text" v-model="blog.status" />
       </p>
       <p>
-        <button type="submit">create blog</button>
+        <button type="submit">add</button>
       </p>
     </form>
   </div>
@@ -43,7 +42,7 @@ export default {
         pictures: "null",
         content: "",
         category: "",
-        status: "saved",
+        status: "",
       },
       config: {
         toolbar: [
@@ -65,7 +64,11 @@ export default {
       }
     },
   },
-};
+}
+components: {  
+VueCkeditor  
+}
+
 </script>
 <style scoped>
 

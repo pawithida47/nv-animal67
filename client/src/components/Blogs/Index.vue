@@ -1,18 +1,18 @@
 <template>
     <div>
-        <h2>Get all blogs</h2>
+        <h2>ส่วนจัดการสัตว์</h2>
         <p><button v-on:click="logout">Logout</button></p>
-        <h4>จำนวน blog {{blogs.length}}</h4>
-        <p><button v-on:click="navigateTo('/blog/create')">สร้าง blog</button></p>
+        <h4>จำนวน animal {{blogs.length}}</h4>
+        <p><button v-on:click="navigateTo('/blog/create')">add animal</button></p>
         <div v-for="blog in blogs" v-bind:key="blog.id">
             <p>id: {{ blog.id }}</p>
-            <p>title: {{ blog.title }}</p>
-            <p>content: {{ blog.content }}</p>
-            <p>category: {{ blog.category }}</p>
-            <p>status: {{ blog.status }}</p>
+            <p>ชื่อ: {{ blog.name }}</p>
+            <p>ที่อยู่อาศัย: {{ blog.habitat }}</p>
+            <p>อาหาร: {{ blog.food }}</p>
+            <p>ประเภท: {{ blog.status }}</p>
             <p>
-            <button v-on:click="navigateTo('/blog/'+ blog.id)">ดู blog</button>
-            <button v-on:click="navigateTo('/blog/edit/'+ blog.id)">แก้ไข blog</button>
+            <button v-on:click="navigateTo('/blog/'+ blog.id)">ดู</button>
+            <button v-on:click="navigateTo('/blog/edit/'+ blog.id)">แก้ไข</button>
             <button v-on:click="deleteBlog(blog)">ลบข้อมูล</button>
             </p>
             <hr>

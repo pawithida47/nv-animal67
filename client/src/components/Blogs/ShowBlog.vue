@@ -1,14 +1,14 @@
 <template>
     <div>
-        <h1>Show Blog</h1>
+        <h1>Show animal</h1>
         <p>id: {{ blog.id }}</p>
-        <p>title: {{ blog.title }}</p>
-        <p>content: {{ blog.content }}</p>
-        <p>category: {{ blog.category }}</p>
-        <p>status: {{ blog.status }}</p>
+        <p>ชื่อ: {{ blog.name }}</p>
+        <p>ที่อยู่อาศัย: {{ blog.habitat }}</p>
+        <p>อาหาร: {{ blog.food }}</p>
+        <p>ประเภท: {{ blog.status }}</p>
         <p>
         <button v-on:click="navigateTo('/blog/edit/'+ blog.id)">แก้ไข
-        blog</button>
+        </button>
         <button v-on:click="navigateTo('/blogs')">กลับ </button>
         </p>
     </div>
