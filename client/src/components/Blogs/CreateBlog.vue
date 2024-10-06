@@ -6,11 +6,7 @@
         ชื่อ:
         <input type="text" v-model="blog.name" />
       </p>
-      p><strong>content: </strong></p> 
-<p><vue-ckeditor 
-v-model.lazy="blog.content" 
-:config="config" 
-@blur="onBlur($event)" @focus="onFocus($event)" /></p> 
+     
       <p>ที่อยู่อาศัย:
       <input type="text" v-model="blog.habitat" />
     </p>

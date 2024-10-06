@@ -1,12 +1,40 @@
 module.exports = (sequelize, DataTypes) => {
     const Blog = sequelize.define('Blog', {
-        name: { type: DataTypes.STRING, allowNull: false },  // ใช้ DataTypes.STRING แทน String
-        habitat: { type: DataTypes.STRING, allowNull: false }, // ใช้ DataTypes.STRING
-        food: { type: DataTypes.STRING, allowNull: false },    // ใช้ DataTypes.STRING
-        status: { type: DataTypes.ENUM('saved', 'endangered'), defaultValue: 'saved' }, // ใช้ DataTypes.ENUM
-        userId: { type: DataTypes.INTEGER, references: { model: 'Users', key: 'id' } }, // ใช้ DataTypes.INTEGER แทน ObjectId
+        name: { 
+            type: DataTypes.STRING, 
+            allowNull: false 
+        }, 
+        habitat: { 
+            type: DataTypes.STRING, 
+            allowNull: false 
+        }, 
+        food: { 
+            type: DataTypes.STRING, 
+            allowNull: false 
+        },
+        status: { 
+            type: DataTypes.ENUM('saved', 'endangered'), 
+            defaultValue: 'saved' 
+        },
+        userId: { 
+            type: DataTypes.INTEGER, 
+            allowNull: false,
+            references: { 
+                model: 'Users', // ตรวจสอบว่า 'Users' ตรงกับโมเดล User ที่สร้างไว้
+                key: 'id' 
+            } 
+        }
     }, {
-        timestamps: true, // เปิดใช้ timestamps (createdAt, updatedAt) อัตโนมัติ
+        timestamps: true, // ใช้ timestamps (createdAt, updatedAt)
     });
-    return Blog
-}
+
+    // กำหนดความสัมพันธ์กับโมเดล User
+    Blog.associate = function(models) {
+        Blog.belongsTo(models.User, { 
+            foreignKey: 'userId', 
+            as: 'user' 
+        });
+    };
+
+    return Blog;
+};
