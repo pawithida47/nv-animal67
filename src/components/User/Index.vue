@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div class="container">
     <h1>Get All Users</h1>
     
@@ -14,28 +15,57 @@
           <button v-on:click="navigateTo('/user/'+user.id)" class="btn btn-info">View</button>
           <button v-on:click="navigateTo('/user/edit/'+user.id)" class="btn btn-warning">Edit</button>
           <button v-on:click="deleteUser(user)" class="btn btn-danger">Delete</button>
+=======
+  <div>
+    <h1>Get All Users</h1>
+    <div><button v-on:click="navigateTo('/user/create')">สร้างผู้ใช้</button></div>
+    <hr>
+    <div v-if="users.length">
+      <div><b>จำนวนผู้ใช้งาน:</b> {{ users.length }}</div>
+      <div v-for="user in users" v-bind:key="user.id">
+        <div><b>id:</b> {{ user.id }}</div>
+        <div><b>ชื่อผู้ใช้:</b> {{ user.name }} {{ user.lastname }}</div>
+        <div><b>อีเมล:</b> {{ user.email }}</div>
+        <div><b>status:</b> {{ user.status }}</div>
+        <div><b>type:</b> {{ user.type }}</div>
+        <div>
+          <button v-on:click="navigateTo('/user/'+user.id)">ดูข้อมูล</button>
+          <button v-on:click="navigateTo('/user/edit/'+user.id)">แก้ไขข้อมูล</button>
+          <button v-on:click="deleteUser(user)">ลบข้อมูล</button>
+>>>>>>> 08ab55fd7f86d8084deddbad6a7c7433e3dbd464
         </div>
         <hr>
       </div>
     </div>
+<<<<<<< HEAD
 
     <div class="button-container">
       <button v-on:click="navigateTo('/user/create')" class="btn btn-primary">Create User</button>
       <button v-on:click="logout" class="btn btn-secondary">Logout</button>
     </div>
+=======
+    <div><button v-on:click="logout">Logout</button></div>
+
+>>>>>>> 08ab55fd7f86d8084deddbad6a7c7433e3dbd464
   </div>
 </template>
 
 <script>
 import UsersService from "@/services/UsersService";
+<<<<<<< HEAD
 
 export default {
   data() {
+=======
+export default {
+  data(){
+>>>>>>> 08ab55fd7f86d8084deddbad6a7c7433e3dbd464
     return {
       users: []
     }
   },
   async created() {
+<<<<<<< HEAD
     try {
       this.users = (await UsersService.index()).data;
     } catch (err) {
@@ -58,14 +88,48 @@ export default {
           await UsersService.delete(user);
           this.refreshData();
         } catch (err) {
+=======
+    try{
+      this.users = (await UsersService.index()).data;
+    }catch(err){
+      console.log(err);
+    }
+  },
+  methods:{
+    logout(){
+      this.$store.dispatch('setToken',null)
+      this.$store.dispatch('setUser',null)
+      this.$router.push({
+        name: 'login'
+      })
+    },
+    navigateTo(route){
+      this.$router.push(route);
+    },
+    async deleteUser(user){
+      let result = confirm("คุณต้องการลบข้อมูลใช่หรือไม่?");
+      if(result){
+        try{
+          await UsersService.delete(user);
+          this.refreshData();
+
+        }catch(err){
+>>>>>>> 08ab55fd7f86d8084deddbad6a7c7433e3dbd464
           console.log(err);
         }
       }
     },
+<<<<<<< HEAD
     async refreshData() {
       try {
         this.users = (await UsersService.index()).data;
       } catch (err) {
+=======
+    async refreshData(){
+      try{
+        this.users = (await UsersService.index()).data;
+      }catch(err){
+>>>>>>> 08ab55fd7f86d8084deddbad6a7c7433e3dbd464
         console.log(err);
       }
     }
@@ -73,6 +137,7 @@ export default {
 };
 </script>
 
+<<<<<<< HEAD
 <style scoped>
 .container {
   max-width: 800px;
@@ -133,3 +198,6 @@ export default {
   margin-bottom: 5px;
 }
 </style>
+=======
+<style></style>
+>>>>>>> 08ab55fd7f86d8084deddbad6a7c7433e3dbd464

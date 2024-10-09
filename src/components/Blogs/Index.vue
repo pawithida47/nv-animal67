@@ -1,7 +1,7 @@
 <template>
     <div class="container">
-        <h2>All Animal</h2>
-        <!-- <p><button class="btn btn-logout" @click="logout">Log out</button></p> -->
+        <h2>สัตว์ทั้งหมด</h2>
+        <p><button class="btn btn-logout" @click="logout">Log out</button></p>
         
         <h4 class="count">จำนวนสัตว์: {{ filteredBlogs.length }} ตัว</h4>
         
@@ -133,10 +133,9 @@ h2 {
 }
 
 .filter-buttons {
-    margin: 0px 0;
+    margin: 20px 0;
     display: flex;
-    justify-content: center; /* จัดให้อยู่ตรงกลาง */
-    flex-wrap: wrap; /* อนุญาตให้แถวใหม่เมื่อไม่มีที่พอ */
+    justify-content: space-between;
 }
 
 .btn {
@@ -145,7 +144,8 @@ h2 {
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
-    margin: 5px; /* ใช้ margin สำหรับระยะห่าง */
+    flex: 1;
+    margin: 0 5px;
     transition: background-color 0.3s, transform 0.2s;
 }
 
@@ -179,6 +179,10 @@ h2 {
     background-color: #ffffff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
+     display: flex;
+    flex-direction: column;
+   
+    
 }
 
 .animal-card:hover {
@@ -194,6 +198,7 @@ h2 {
 }
 .animal-card p {
     margin: 5px 0;
+    
 }
 
 .button-group {

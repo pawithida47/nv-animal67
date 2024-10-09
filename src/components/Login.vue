@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div class="login-container">
     <center><h1>User Login</h1></center>
     <form v-on:submit.prevent="onLogin">
@@ -14,22 +15,42 @@
         />
       </div>
       <div class="form-group">
+=======
+  <div>
+    <h1>User Login</h1>
+    <form v-on:submit.prevent="onLogin">
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" v-model="email" required />
+      </div>
+      <div>
+>>>>>>> 08ab55fd7f86d8084deddbad6a7c7433e3dbd464
         <label for="password">Password</label>
         <input
           type="password"
           id="password"
           name="password"
           v-model="password"
+<<<<<<< HEAD
           placeholder="Enter your password"
           required
         />
       </div>
       <button type="submit" class="login-btn">Login</button>
+=======
+          required
+        />
+      </div>
+      <button type="submit">Login</button>
+>>>>>>> 08ab55fd7f86d8084deddbad6a7c7433e3dbd464
       <div class="error" v-if="error">{{ error }}</div>
     </form>
   </div>
 </template>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 08ab55fd7f86d8084deddbad6a7c7433e3dbd464
 <script>
 import AuthenService from "../services/AuthenService";
 export default {
@@ -64,6 +85,7 @@ export default {
   },
 };
 </script>
+<<<<<<< HEAD
 
 <style scoped>
 /* Container for the login form */
@@ -124,5 +146,10 @@ export default {
   color: red;
   margin-top: 15px;
   font-size: 14px;
+=======
+<style scoped>
+.error {
+  color: red;
+>>>>>>> 08ab55fd7f86d8084deddbad6a7c7433e3dbd464
 }
 </style>

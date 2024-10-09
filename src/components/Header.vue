@@ -4,11 +4,19 @@
       <ul class="nav">
         <li><router-link :to="{ name: 'blogs' }">Animal</router-link></li>
         <li><router-link :to="{ name: 'users' }">Users</router-link></li>
+<<<<<<< HEAD
         <li><router-link :to="{ name: 'login' }">Login</router-link></li>
+=======
+ 
+        <li><router-link :to="{ name: 'login' }">Login</router-link></li>
+       
+        
+>>>>>>> 08ab55fd7f86d8084deddbad6a7c7433e3dbd464
       </ul>
     </div>
   </div>
 </template>
+<<<<<<< HEAD
 
 <script>
 export default {};
@@ -59,5 +67,43 @@ export default {};
   background-color: #ffd700;
   color: #333;
   border-bottom: 2px solid darkslategrey; /* เส้นใต้ลิงก์ที่กำลังใช้งาน */
+=======
+<script>
+export default {};
+</script>
+<style scoped>
+.nv-navbar {
+  background-color: palegoldenrod;
+  width: 100%;
+  height: 20px;
+  padding: 10px 0px 10px 0px;
+}
+.nv-navbar .nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+.nv-navbar .nav li {
+  float: left;
+}
+.nv-navbar .nav li a {
+  padding: 10px;
+  text-decoration: none;
+  color: gray;
+  font-weight: bold;
+}
+.nv-navbar .nav li a:hover {
+  padding: 10px;
+  text-decoration: none;
+  color: darkslategrey;
+}
+.nv-navbar .nav li a.router-link-active {
+  background-color: gold;
+  color: darkslategrey;
+}
+.clearfix {
+  clear: left;
+>>>>>>> 08ab55fd7f86d8084deddbad6a7c7433e3dbd464
 }
 </style>

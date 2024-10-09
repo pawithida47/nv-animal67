@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div class="container">
     <h1>Create Animal</h1>
     <form v-on:submit.prevent="createBlog" class="form-container" enctype="multipart/form-data">
@@ -64,10 +65,60 @@ export default {
         BASE_URL: "http://localhost:8081/assets/uploads/",
       },
       pictures: [], // เปลี่ยนให้สามารถเก็บภาพได้เพียง 1 ภาพ
+=======
+  <div>
+    <h1>add animal</h1>
+    <form v-on:submit.prevent="createBlog">
+      <p>
+        ชื่อ:
+        <input type="text" v-model="blog.name" />
+      </p>
+     
+      <p>ที่อยู่อาศัย:
+      <input type="text" v-model="blog.habitat" />
+    </p>
+      <p>
+        อาหาร:
+        <input type="text" v-model="blog.food" />
+      </p>
+      <p>
+        ประเภท:
+        <input type="text" v-model="blog.status" />
+      </p>
+      <p>
+        <button type="submit">add</button>
+      </p>
+    </form>
+  </div>
+</template>
+<script>
+import BlogsService from "@/services/BlogsService";
+import VueCkeditor from "vue-ckeditor2";
+
+export default {
+  components: { VueCkeditor },
+  data() {
+    return {
+      blog: {
+        title: "",
+        thumbnail: "null",
+        pictures: "null",
+        content: "",
+        category: "",
+        status: "",
+      },
+      config: {
+        toolbar: [
+          ["Bold", "Italic", "Underline", "Strike", "Subscript", "Superscript"],
+        ],
+        height: 300,
+      },
+>>>>>>> 08ab55fd7f86d8084deddbad6a7c7433e3dbd464
     };
   },
   methods: {
     async createBlog() {
+<<<<<<< HEAD
       if (this.pictures.length === 0) {
         alert("Please upload a picture.");
         return;
@@ -79,10 +130,18 @@ export default {
       try {
         await BlogsService.post(this.blog);
         this.$router.push({ name: "blogs" });
+=======
+      try {
+        await BlogsService.post(this.blog);
+        this.$router.push({
+          name: "blogs",
+        });
+>>>>>>> 08ab55fd7f86d8084deddbad6a7c7433e3dbd464
       } catch (err) {
         console.log(err);
       }
     },
+<<<<<<< HEAD
     async filesChange(fileList) {
       const formData = new FormData();
       this.pictures = []; // ล้าง pictures ก่อนหน้านี้
@@ -168,4 +227,15 @@ h1 {
 .btn-primary:hover {
   background-color: #0056b3;
 }
+=======
+  },
+}
+components: {  
+VueCkeditor  
+}
+
+</script>
+<style scoped>
+
+>>>>>>> 08ab55fd7f86d8084deddbad6a7c7433e3dbd464
 </style>

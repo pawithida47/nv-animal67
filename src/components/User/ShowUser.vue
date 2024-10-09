@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div class="user-container">
     <h1>Show User</h1>
     <div class="user-card">
@@ -14,6 +15,18 @@
     <div class="button-container">
       <button class="back-button" @click="goBack">Back</button>
     </div>
+=======
+  <div>
+    <h1>Show User</h1>
+    <p>ID: {{ user.id }} </p>
+    <p>Name: {{ user.id }} </p>
+    <p>Lastname: {{ user.lastname }} </p>
+    <p>Email: {{ user.email }}</p>
+    <p>Password: {{ user.password }}</p>
+    <p>Status: {{ user.status }}</p>
+    <p>Type: {{ user.type }}</p>
+    <p>Created At: {{ user.createdAt }}</p>
+>>>>>>> 08ab55fd7f86d8084deddbad6a7c7433e3dbd464
   </div>
 </template>
 
@@ -21,12 +34,17 @@
 import UsersService from "@/services/UsersService";
 
 export default { 
+<<<<<<< HEAD
   data() {
+=======
+  data(){
+>>>>>>> 08ab55fd7f86d8084deddbad6a7c7433e3dbd464
     return {
       user: {}
     }
   },
   async created() {
+<<<<<<< HEAD
     try {
       const userId = this.$route.params.userId;
       this.user = (await UsersService.show(userId)).data;
@@ -39,10 +57,24 @@ export default {
       this.$router.go(-1);
     }
   }
+=======
+    try{
+      var userId = this.$route.params.userId;
+      this.user = (await UsersService.show(userId)).data;
+    }catch(err){
+      console.log(err);
+    }
+    
+    // console.log(this.user);
+  },
+  
+
+>>>>>>> 08ab55fd7f86d8084deddbad6a7c7433e3dbd464
 }
 </script>
 
 <style>
+<<<<<<< HEAD
 .user-container {
   max-width: 600px;
   margin: 0 auto;
@@ -91,3 +123,7 @@ strong {
   background-color: #0056b3;
 }
 </style>
+=======
+
+</style>
+>>>>>>> 08ab55fd7f86d8084deddbad6a7c7433e3dbd464

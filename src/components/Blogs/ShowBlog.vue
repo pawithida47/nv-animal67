@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
     <div class="container">
       <h1>Show Animal</h1>
       <div class="animal-details">
@@ -25,6 +26,28 @@
             return {
                 blog: null,
                 BASE_URL: 'http://localhost:8081/assets/uploads/', // ตั้งค่า URL เบสที่ถูกต้อง
+=======
+    <div>
+        <h1>Show animal</h1>
+        <p>id: {{ blog.id }}</p>
+        <p>ชื่อ: {{ blog.name }}</p>
+        <p>ที่อยู่อาศัย: {{ blog.habitat }}</p>
+        <p>อาหาร: {{ blog.food }}</p>
+        <p>ประเภท: {{ blog.status }}</p>
+        <p>
+        <button v-on:click="navigateTo('/blog/edit/'+ blog.id)">แก้ไข
+        </button>
+        <button v-on:click="navigateTo('/blogs')">กลับ </button>
+        </p>
+    </div>
+</template>
+<script>
+    import BlogsService from '@/services/BlogsService'
+    export default {
+        data () {
+            return {
+                blog: null
+>>>>>>> 08ab55fd7f86d8084deddbad6a7c7433e3dbd464
             }
         },
         async created () {
@@ -32,6 +55,7 @@
                 let blogId = this.$route.params.blogId
                 this.blog = (await BlogsService.show(blogId)).data
             } catch (error) {
+<<<<<<< HEAD
                 console.log(error)
             }
         },
@@ -119,3 +143,17 @@
   }
   </style>
   
+=======
+                console.log (error)
+            }
+        },
+        methods : {
+            navigateTo (route) {
+                this.$router.push(route)
+            },
+        }
+    }
+</script>
+<style scoped>
+</style>
+>>>>>>> 08ab55fd7f86d8084deddbad6a7c7433e3dbd464

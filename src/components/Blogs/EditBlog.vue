@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
     <div class="container">
       <h1>Edit Animal</h1>
       <form v-on:submit.prevent="editBlog" class="form-container">
@@ -36,11 +37,29 @@
   </template>
   
   <script>
+=======
+    <div>
+        <h1>Edit animal</h1>
+        <form v-on:submit.prevent = "editBlog">
+            <p>ชื่อ: <input type="text" v-model="blog.name"></p>
+            <p>ที่อยู่อาศัย: <input type="text" v-model="blog.habitat" /></p>
+            <p>อาหาร: <input type="text" v-model="blog.food"></p>
+            <p>ประเภท: <input type="text" v-model="blog.status"></p>
+            <p>
+            <button type="submit">update blog</button>
+            <button v-on:click="navigateTo('/blogs')">กลับ</button>
+            </p>
+        </form>
+    </div>
+</template>
+<script>
+>>>>>>> 08ab55fd7f86d8084deddbad6a7c7433e3dbd464
 import BlogsService from '@/services/BlogsService'
 import VueCkeditor from "vue-ckeditor2"
 
 export default {
     components: { VueCkeditor },
+<<<<<<< HEAD
     data() {
         return {
             blog: {
@@ -49,6 +68,17 @@ export default {
               food: '',
               status: '',
               picture: '',
+=======
+    data () {
+        return {
+            blog: {
+                title: '',
+                thumbnail: 'null',
+                pictures: 'null',
+                content: '',
+                category: '',
+                status: ''
+>>>>>>> 08ab55fd7f86d8084deddbad6a7c7433e3dbd464
             },
             config: {
                 toolbar: [
@@ -59,7 +89,11 @@ export default {
         }
     },
     methods: {
+<<<<<<< HEAD
         async editBlog() {
+=======
+        async editBlog () {
+>>>>>>> 08ab55fd7f86d8084deddbad6a7c7433e3dbd464
             try {
                 await BlogsService.put(this.blog)
                 this.$router.push({
@@ -71,6 +105,7 @@ export default {
         }
 
     },
+<<<<<<< HEAD
     async created() {
         try {
             let blogId = this.$route.params.blogId
@@ -167,3 +202,21 @@ export default {
   }
   </style>
   
+=======
+    async created () {
+        try {
+            let blogId = this.$route.params.blogId
+            this.blog = (await BlogsService.show(blogId)).data
+            
+        } catch (error) {
+            console.log (error)
+        }
+    },
+
+
+
+}
+</script>
+<style scoped>
+</style>
+>>>>>>> 08ab55fd7f86d8084deddbad6a7c7433e3dbd464
